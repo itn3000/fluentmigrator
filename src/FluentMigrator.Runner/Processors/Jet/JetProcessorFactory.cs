@@ -1,5 +1,6 @@
 ﻿namespace FluentMigrator.Runner.Processors.Jet
 {
+#if NET451
     using System.Data.OleDb;
     using Generators.Jet;
 
@@ -11,4 +12,5 @@
             return new JetProcessor(connection, new JetGenerator(), announcer, options);
         }
     }
+#endif
 }
