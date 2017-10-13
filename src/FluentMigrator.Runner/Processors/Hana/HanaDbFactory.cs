@@ -6,7 +6,11 @@ namespace FluentMigrator.Runner.Processors.Hana
     {
         protected override DbProviderFactory CreateFactory()
         {
+            #if NET451
             return DbProviderFactories.GetFactory("Sap.Data.Hana");
+            #else
+            throw new System.NotSupportedException("not supported in netstandard2.0");
+            #endif
         }
     }
 }

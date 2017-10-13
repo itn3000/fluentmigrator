@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Data;
+#if NET451
 using System.Data.OleDb;
+#endif
 using FluentMigrator.Builders.Execute;
 
 namespace FluentMigrator.Runner.Processors.Jet
 {
+#if NET451
     public class JetProcessor : ProcessorBase
     {
         private readonly string connectionString;
@@ -219,4 +222,5 @@ namespace FluentMigrator.Runner.Processors.Jet
             EnsureConnectionIsClosed();
         }
     }
+#endif
 }
